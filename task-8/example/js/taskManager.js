@@ -1,4 +1,3 @@
-// Create the HTML for a task
 // Add an data-task-id attribute to each task
 // OPTIONAL 1: Add visible or invisible class to the "Mark As Done" button depending on if the status is 'TODO'
 // OPTIONAL 2: Change the styling of the status pill depending on the passed in status
@@ -19,18 +18,14 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => `
     </li>
 `;
 
-// Create a TaskManager class
 class TaskManager {
-    // Set up the tasks and currentId property in the contructor
     constructor(currentId = 0) {
         this.tasks = [];
         this.currentId = currentId;
     }
 
-    // Create the addTask method
     addTask(name, description, assignedTo, dueDate) {
         const task = {
-            // Increment the currentId property
             id: this.currentId++,
             name: name,
             description: description,
@@ -39,7 +34,6 @@ class TaskManager {
             status: 'TODO'
         };
 
-        // Push the task to the tasks property
         this.tasks.push(task);
     }
 
@@ -63,33 +57,23 @@ class TaskManager {
         return foundTask;
     }
 
-    // Create the render method
     render() {
-        // Create an array to store the tasks' HTML
         const tasksHtmlList = [];
 
-        // Loop over our tasks and create the html, storing it in the array
         for (let i = 0; i < this.tasks.length; i++) {
-            // Get the current task in the loop
             const task = this.tasks[i];
 
-            // Format the date
             const date = new Date(task.dueDate);
             const formattedDate = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
 
-            // Create the task html
             // Pass the task id as a parameter
             const taskHtml = createTaskHtml(task.id, task.name, task.description, task.assignedTo, formattedDate, task.status);
 
-            // Push it to the tasksHtmlList array
             tasksHtmlList.push(taskHtml);
         }
 
-        // Create the tasksHtml by joining each item in the tasksHtmlList
-        // with a new line in between each item.
         const tasksHtml = tasksHtmlList.join('\n');
 
-        // Set the inner html of the tasksList on the page
         const tasksList = document.querySelector('#tasksList');
         tasksList.innerHTML = tasksHtml;
     }
