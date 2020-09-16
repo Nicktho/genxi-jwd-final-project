@@ -184,6 +184,8 @@ For this Stretch Goal, we want to add specific styles to our Task Status dependi
 
 In `js/taskManager.js`, in the HTML for each Task, change the style (eg: color) of the Task Status, depending on whether the passed in `status` is equal to `'TODO'` or not.
 
+Check out [example/js/taskManager.js](example/js/taskManager.js) for a completed example!
+
 ## Results
 
 Open up `index.html` and add a task. Now we should we able to click the "Mark As Done" button below each task, to change the status from "TODO" to "DONE".
