@@ -1,15 +1,22 @@
 // Create the HTML for a task
-const createTaskHtml = (name, description, assignedTo, dueDate, status) => `
-    <li class="list-group-item">
+// Add an data-task-id attribute to each task
+// Add visible or invisible class to the "Mark As Done" button depending on if the status is 'TODO'
+// OPTIONAL: Change the styling of the status pill depending on the passed in status
+const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => `
+    <li class="list-group-item" data-task-id=${id}>
         <div class="d-flex w-100 mt-2 justify-content-between align-items-center">
             <h5>${name}</h5>
-            <span class="badge badge-danger">${status}</span>
+            <span class="badge ${status === 'TODO' ? 'badge-danger' : 'badge-success'}">${status}</span>
         </div>
         <div class="d-flex w-100 mb-3 justify-content-between">
             <small>Assigned To: ${assignedTo}</small>
             <small>Due: ${dueDate}</small>
         </div>
         <p>${description}</p>
+        <div class="d-flex w-100 justify-content-end">
+            <button class="btn btn-outline-success mr-1 done-button ${status === 'TODO' ? 'visible' : 'invisible'}">Mark As Done</button>
+            <button class="btn btn-outline-danger">Delete</button>
+        </div>
     </li>
 `;
 
@@ -37,6 +44,26 @@ class TaskManager {
         this.tasks.push(task);
     }
 
+    getTaskById(taskId) {
+        // Create a variable to store the found task
+        let foundTask;
+
+        // Loop over the tasks and find the task with the id passed as a parameter
+        for (let i = 0; i < this.tasks.length; i++) {
+            // Get the current task in the loop
+            const task = this.tasks[i];
+
+            // Check if its the right task by comparing the task's id to the id passed as a parameter
+            if (task.id === taskId) {
+                // Store the task in the foundTask variable
+                foundTask = task;
+            }
+        }
+
+        // Return the found task
+        return foundTask;
+    }
+
     // Create the render method
     render() {
         // Create an array to store the tasks' HTML
@@ -44,7 +71,7 @@ class TaskManager {
 
         // Loop over our tasks and create the html, storing it in the array
         for (let i = 0; i < this.tasks.length; i++) {
-            // Get the current task in the look
+            // Get the current task in the loop
             const task = this.tasks[i];
 
             // Format the date
@@ -52,7 +79,8 @@ class TaskManager {
             const formattedDate = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
 
             // Create the task html
-            const taskHtml = createTaskHtml(task.name, task.description, task.assignedTo, formattedDate, task.status);
+            // Pass the task id as a parameter
+            const taskHtml = createTaskHtml(task.id, task.name, task.description, task.assignedTo, formattedDate, task.status);
 
             // Push it to the tasksHtmlList array
             tasksHtmlList.push(taskHtml);
