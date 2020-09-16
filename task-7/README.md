@@ -55,18 +55,17 @@ In this step, we'll create a function using [template literals](https://develope
 > You should see HTML for the task in the console, for example:
 >
 > ```html
->        <li class="list-group-item">
->            <div class="d-flex w-100 mt-2 justify-content-between align-items-center">
->                <h5>Take out trash</h5>
->                <span class="badge badge-danger">TODO</span>
->            </div>
->            <div class="d-flex w-100 mb-3 justify-content-between">
->                <small>Assigned To: Nick</small>
->                <small>Due: 20/09/2020</small>
->            </div>
->            <p>Take out the trash to the front of the house</p>
->        </li>
-> 
+><li class="list-group-item">
+><div class="d-flex w-100 mt-2 justify-content-between align-items-center">
+><h5>Take out trash</h5>
+><span class="badge badge-danger">TODO</span>
+></div>
+><div class="d-flex w-100 mb-3 justify-content-between">
+><small>Assigned To: Nick</small>
+><small>Due: 20/09/2020</small>
+></div>
+><p>Take out the trash to the front of the house</p>
+></li>
 > ```
 
 ### Step 2: The render method
