@@ -116,4 +116,4 @@ Test out your code by adding some tasks using the **New Task** form, and checkin
 
 ## Example
 
-Stuck? Check out the provided example in the [/example](example/) folder!
+Stuck? Check out the provided example in the [example/](example/) folder!
