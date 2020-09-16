@@ -39,7 +39,7 @@ class TaskManager {
 
         // Loop over our tasks and create the html, storing it in the array
         for (let i = 0; i < this.tasks.length; i++) {
-            // Get the current task in the look
+            // Get the current task in the loop
             const task = this.tasks[i];
 
             // Format the date
