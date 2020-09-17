@@ -59,7 +59,7 @@ This way, we can avoid having to add Event Listeners to each and every "Mark As 
 
 6. Use [DOM Traversal](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents#The_document_object_model), such as the `parentElement` property of the `target` ([Node.parentElement](https://developer.mozilla.org/en-US/docs/Web/API/Node/parentElement)) to _traverse_ the DOM and find the task's element. (Eg, it's `<li>`). Store the `<li>` in a `parentTask` variable.
 
-    **Note**: This one is tricky! Head over to the (example/js/index.js)[example/js/index.js] file to see how I did it.
+    **Note**: This one is tricky! Head over to the [example/js/index.js](example/js/index.js) file to see how I did it.
 
 > #### Test Your Code!
 > Now is a good chance to test your code, open `js/index.js` and do the following:
