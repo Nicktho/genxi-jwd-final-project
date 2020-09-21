@@ -49,6 +49,7 @@ For this step, we'll go with the second way. It's more _explicit_ and clear.
 
 > #### Useful Resources for this step
 > - [EventTarget.addEventListener()](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)
+> - [Using Data Attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes)
 
 Now we have our `deleteTask` method ready, we need to connect it to the delete buttons we created in Step 1.
 
@@ -57,7 +58,7 @@ We'll be using the `delete-button` class we added to the buttons to find them. I
 1. In `js/index.js`, find the `EventListener` for the `click` event on the `Tasks List` we created in Task 8.
 2. At the bottom of the function, after our code that handles the "Mark As Done" button, create a new `if` statement to check if the `event.target.classList` `contains` the class `'delete-button'`.
 3. If it does, get the `parentTask` and store it as a variable.
-4. Get the `taskId` of the parent task - **remember**, since it's stored as a string in a `data` attribute, we need to convert it to a number, just like we did for task 8!
+4. Get the `taskId` of the parent task from its `data-task-id` property - **remember**, since it's stored as a string in a `data` attribute, we need to convert it to a number, just like we did for task 8!
 5. Delete the task, passing the `taskId` to `taskManager.deleteTask()`
 6. Save the tasks to `localStorage` using `taskManager.save()`
 7. Render the tasks using `taskManager.render()`.
