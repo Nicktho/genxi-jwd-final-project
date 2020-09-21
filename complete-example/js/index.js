@@ -72,4 +72,22 @@ tasksList.addEventListener('click', (event) => {
         // Render the tasks
         taskManager.render();
     }
+
+    // Check if a "Delete" button was clicked
+    if (event.target.classList.contains('delete-button')) {
+        // Get the parent Task
+        const parentTask = event.target.parentElement.parentElement;
+
+        // Get the taskId of the parent Task.
+        const taskId = Number(parentTask.dataset.taskId);
+
+        // Delete the task
+        taskManager.deleteTask(taskId);
+
+        // Save the tasks to localStorage
+        taskManager.save();
+
+        // Render the tasks
+        taskManager.render();
+    }
 });
