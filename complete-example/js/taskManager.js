@@ -93,5 +93,26 @@ class TaskManager {
         const tasksList = document.querySelector('#tasksList');
         tasksList.innerHTML = tasksHtml;
     }
+
+    // Create the save method
+    save() {
+        // Create a JSON string of the tasks
+        const tasksJson = JSON.stringify(this.tasks);
+
+        // Store the JSON string in localStorage
+        localStorage.setItem('tasks', tasksJson);
+    }
+
+    // Create the load method
+    load() {
+        // Check if any tasks are saved in localStorage
+        if (localStorage.getItem('tasks')) {
+            // Get the JSON string of tasks in local storage
+            const tasksJson = localStorage.getItem('tasks');
+
+            // Convert it to an array and store it in our TaskManager
+            this.tasks = JSON.parse(tasksJson);
+        }
+    }
 }
 
